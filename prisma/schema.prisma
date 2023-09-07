@@ -9,3 +9,11 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Task {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  title           String? @unique
+  status          String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
