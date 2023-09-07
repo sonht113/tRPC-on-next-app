@@ -12,7 +12,11 @@ export default function Provider({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
-        defaultOptions: { queries: { staleTime: 3000 } }
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false
+          }
+        }
       })
   )
   const url = "http://localhost:3000/api/trpc"
