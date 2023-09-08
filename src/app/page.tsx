@@ -1,10 +1,9 @@
-import TodoList from "./features/todo/component/todo-list";
+import TaskList from "./features/task/components/task-list"
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <span className="dark:text-white">Hello</span>
-      <TodoList />
+    <main className='w-full px-20'>
+      <TaskList />
     </main>
   )
 }

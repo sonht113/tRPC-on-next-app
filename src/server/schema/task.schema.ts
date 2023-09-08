@@ -1,4 +1,4 @@
-import { boolean, number, object, string, TypeOf } from "zod"
+import { number, object, string, TypeOf } from "zod"
 
 export const createTaskSchema = object({
   title: string({
@@ -16,6 +16,13 @@ export const updateTaskSchema = object({
     title: string(),
     status: number()
   }).partial()
+})
+
+export const updateStatusTaskSchema = object({
+  params,
+  body: object({
+    status: number()
+  })
 })
 
 export type CreateTaskInput = TypeOf<typeof createTaskSchema>

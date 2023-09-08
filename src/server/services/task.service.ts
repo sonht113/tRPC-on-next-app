@@ -31,7 +31,7 @@ export const findAllTask = async () => {
   }
 }
 
-export const updatePost = async (
+export const updateTask = async (
   where: Prisma.TaskWhereUniqueInput,
   data: Prisma.TaskUpdateInput,
   select?: Prisma.TaskSelect
@@ -39,6 +39,6 @@ export const updatePost = async (
   return (await prisma.task.update({ where, data, select })) as Task
 }
 
-export const deletePost = async (where: Prisma.TaskWhereUniqueInput) => {
+export const deleteTask = async (where: Prisma.TaskWhereUniqueInput) => {
   return await prisma.task.delete({ where })
 }

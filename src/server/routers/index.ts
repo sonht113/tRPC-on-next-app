@@ -1,8 +1,8 @@
 import { router } from "../trpc";
-import { todoRouter } from "./todo";
+import { taskRouter } from "./task";
 
 export const appRouter = router({
-  todo: todoRouter
+  task: taskRouter
 })
 
 export type AppRouter = typeof appRouter;
