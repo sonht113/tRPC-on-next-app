@@ -2,15 +2,39 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+### Design here:
+<img style="width: 600px;" src="./public/design.png" />
+
+First, set up project:
+```bash
+# Install turbo
+npm install --global turbo
+
+# Install package of project
+pnpm install
+#or
+npm install
+```
+
+Second, change your URL Database <br />
+<code>
+  DATABASE_URL=[your-url-database]
+</code>
+
+Third, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Generate schema
+pnpm run prisma:generate
+
+# Run project
+turbo dev
 # or
 pnpm dev
 ```
+
+
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -27,8 +51,8 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+To learn more about tRPC, take a look at the following resources:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [tRPC Documentation](https://trpc.io/docs/) - learn about tRPC features and API.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can check out [the trpc GitHub repository](https://github.com/trpc/trpc) - your feedback and contributions are welcome!
