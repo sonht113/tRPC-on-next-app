@@ -1,9 +1,9 @@
 "use client"
 import React from "react"
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react"
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Switch } from "@nextui-org/react"
 import Link from "next/link"
-import ButtonTheme from "./button/button-theme"
 import { useTheme } from "next-themes"
+import ButtonTheme from "./button/button-theme"
 
 const NAVBAR_ITEM = [
   {
@@ -19,7 +19,7 @@ const NAVBAR_ITEM = [
 const Header = () => {
   const { theme } = useTheme()
   return (
-    <Navbar className='w-full border-b-[1px] border-gray-600 shadow-lg'>
+    <Navbar className='w-full bg-gray-500 dark:bg-black border-b-[1px] border-gray-600 shadow-lg'>
       <NavbarBrand>
         <AcmeLogo />
         <p className='font-bold text-inherit dark:text-white'>TRPC</p>
@@ -35,7 +35,7 @@ const Header = () => {
       </NavbarContent>
       <NavbarContent justify='end'>
         <NavbarItem>
-          <ButtonTheme typeBtn={theme as "light" | "dark"} size='sm' variant='light' radius='full' />
+          <ButtonTheme />
         </NavbarItem>
       </NavbarContent>
     </Navbar>
