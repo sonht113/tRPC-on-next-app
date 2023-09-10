@@ -3,6 +3,12 @@ import { number, object, string, TypeOf } from "zod"
 export const createTaskSchema = object({
   title: string({
     required_error: "Title is required"
+  }),
+  shortDescription: string({
+    required_error: "Short description is required"
+  }),
+  schedule: string({
+    required_error: "Schedule is required"
   })
 })
 
@@ -14,16 +20,12 @@ export const updateTaskSchema = object({
   params,
   body: object({
     title: string(),
-    status: number()
+    shortDescription: string(),
+    status: number(),
+    schedule: string()
   }).partial()
 })
 
-export const updateStatusTaskSchema = object({
-  params,
-  body: object({
-    status: number()
-  })
-})
 
 export type CreateTaskInput = TypeOf<typeof createTaskSchema>
 export type ParamsInput = TypeOf<typeof params>
