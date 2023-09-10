@@ -9,8 +9,17 @@ import { CreateTaskInput, ParamsInput, UpdateTaskInput } from "./../schema/task.
  */
 export const createTaskHandler = async ({ input }: { input: CreateTaskInput }) => {
   try {
+    const taskFound = await findUniqueTask({title: input.title})
+    if(taskFound) {
+      throw new TRPCError({
+        code: "CONFLICT",
+        message: "Task with that title already exists"
+      }) 
+    }
     const task = await createTask({
-      title: input.title
+      title: input.title,
+      shortDescription: input.shortDescription,
+      schedule: input.schedule
     })
 
     return {
