@@ -6,13 +6,19 @@ import TaskListHeader from "./task-list-header"
 import { TASK_LIST_HEADER } from "../task-constant"
 import { FC } from "react"
 import { Spinner } from "@nextui-org/react"
+import { serverClient } from "@/utils/serverClient"
 
 type Props = {
+  initialTasks?: Awaited<ReturnType<(typeof serverClient.task.getTasks)>>;
   typeTask: keyof typeof TASK_LIST_HEADER
 }
 
-const TaskList: FC<Props> = ({ typeTask }) => {
-  const { data, isLoading, refetch } = trpc.task.getTasks.useQuery()
+const TaskList: FC<Props> = ({ typeTask, initialTasks }) => {
+  const { data, isLoading, refetch } = trpc.task.getTasks.useQuery(undefined, {
+    initialData: initialTasks,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+  })
   const { mutate } = trpc.task.createTask.useMutation()
 
   const handleCreate = () => {
@@ -49,7 +55,6 @@ const TaskList: FC<Props> = ({ typeTask }) => {
           typeTask === "done" &&
           data.data.tasks.doneTasks.map((task) => <Task key={task.id} typeTask={typeTask} data={task} />)}
       </section>
-      <button onClick={handleCreate}>submit</button>
     </section>
   )
 }
