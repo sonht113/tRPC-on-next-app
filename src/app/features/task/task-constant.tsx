@@ -7,21 +7,21 @@ export const TASK_LIST_HEADER = {
     color: "bg-[#6C12DE]",
     textColor: "text-[#6C12DE]",
     icon: <TodoIcon className='w-[20px] stroke-white' />,
-    action: <ButtonCustom action='add' className='rounded-full' />
+    action: (callback?: () => void) => <ButtonCustom onClick={callback} action='add' className='rounded-full' />
   },
   progress: {
     label: "In-Progress",
     color: "bg-[#D3AF00]",
     textColor: "text-[#D3AF00]",
     icon: <InProgressIcon className='w-[20px] stroke-white' />,
-    action: null
+    action: (callback?: () => void) => null
   },
   done: {
     label: "Done",
     color: "bg-[#00B288]",
     textColor: "text-[#00B288]",
     icon: <DoneIcon className='w-[30px] fill-white stroke-black' />,
-    action: <ButtonCustom action='clear' className='rounded-full' />
+    action: (callback: () => void) => <ButtonCustom onClick={callback} action='clear' className='rounded-full' />
   }
 }
 
@@ -52,6 +52,8 @@ export const SCHEDULE = {
     value: "friday"
   }
 }
+
+export const SCHEDULE_OPTION = Object.values(SCHEDULE)
 
 export const LIST_ACTION = {
   todo: ["progress", "update", "delete"],
