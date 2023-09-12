@@ -7,6 +7,7 @@ import { AddIcon, ClearIcon, DeleteIcon, DoneIcon, InProgressIcon, UpdateIcon } 
 type Props =  TooltipProps & {
   className?: string
   action: keyof typeof actions
+  onClick?: () => void
 }
 
 export const actions = {
@@ -42,11 +43,12 @@ export const actions = {
   }
 }
 
-const ButtonCustom: FC<Props> = ({ action, className, ...props }) => {
+const ButtonCustom: FC<Props> = ({ action, className, onClick, ...props }) => {
   return (
     <Tooltip content={actions[action].text} {...props}>
       <button
         type='button'
+        onClick={onClick}
         className={`
         ${actions[action].color} 
         w-[40px] 
