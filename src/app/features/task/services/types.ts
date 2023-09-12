@@ -10,4 +10,6 @@ export type TaskData = {
   updatedAt: any
 }
 
+export type TaskBody = Pick<TaskData, 'title' | 'shortDescription' | 'schedule'>
+
 export type TaskDataMutaion = Partial<TaskData>
