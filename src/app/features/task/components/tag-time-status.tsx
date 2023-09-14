@@ -3,6 +3,7 @@
 import { FC } from "react"
 import { SCHEDULE } from "../task-constant"
 import { EnumTaskStatus } from "../services/enums"
+import { hasItemInList } from "@/utils/common"
 
 type Props = {
   status: string
@@ -19,7 +20,9 @@ const TagTimeStatus: FC<Props> = ({ status, schedule }) => {
         <div className={`w-[20px] h-[10px] ${SCHEDULE[schedule].style} rounded-[2px] rounded-bl-[20px]`}></div>
         <div
           className={`w-[20px] h-[10px] ${
-            +status === EnumTaskStatus["IN_PROGRESS"] ? SCHEDULE[schedule].style : "bg-gray-300"
+            hasItemInList(+status, [EnumTaskStatus["DONE"], EnumTaskStatus["IN_PROGRESS"]])
+              ? SCHEDULE[schedule].style
+              : "bg-gray-300"
           } rounded-[2px] rounded-bl-[20px]`}
         ></div>
         <div

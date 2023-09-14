@@ -10,6 +10,9 @@ type Props = {
 
 const TaskForm = ({ isDisabled }: Props) => {
   const { setBody, body } = useTaskStore()
+
+  console.log(body)
+
   return (
     <>
       <Input
