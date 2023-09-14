@@ -11,8 +11,8 @@ const NAVBAR_ITEM = [
     link: "/"
   },
   {
-    label: "About",
-    link: "/about"
+    label: "Task",
+    link: "/task"
   }
 ]
 
