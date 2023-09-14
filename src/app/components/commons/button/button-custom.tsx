@@ -1,7 +1,7 @@
 "use client"
 
-import { Button, ButtonProps, Tooltip, TooltipProps } from "@nextui-org/react"
-import { FC, ReactNode } from "react"
+import { Tooltip, TooltipProps, Spinner } from "@nextui-org/react"
+import { FC } from "react"
 import { AddIcon, ClearIcon, DeleteIcon, DoneIcon, InProgressIcon, UpdateIcon } from "../../icons"
 
 type Props =  TooltipProps & {
@@ -40,6 +40,11 @@ export const actions = {
     color: "bg-[#FFB423]",
     text: "Do task",
     icon: <InProgressIcon className="w-[20px]" />
+  },
+  loading: {
+    color: "warning",
+    text: "",
+    icon: <Spinner color="warning" />
   }
 }
 
