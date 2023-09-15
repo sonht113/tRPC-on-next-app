@@ -10,9 +10,8 @@ export type TaskData = {
   updatedAt: any;
 };
 
-export type TaskBody = Pick<
-  TaskData,
-  'title' | 'shortDescription' | 'schedule'
+export type TaskBody = Partial<
+  Pick<TaskData, 'title' | 'shortDescription' | 'schedule' | 'id' | 'status'>
 >;
 
 export type TaskDataMutaion = Partial<Omit<TaskData, 'status'>> & {
